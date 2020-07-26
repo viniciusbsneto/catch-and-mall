@@ -7,7 +7,7 @@ const Home: React.FC = () => {
   return (
     <PokemonList>
       <li>
-        <img src="https://super.abril.com.br/wp-content/uploads/2018/07/57113eb00e2163161501025cpokemon21.jpeg" alt="" />
+        <img src="https://super.abril.com.br/wp-content/uploads/2018/07/57113eb00e2163161501025cpokemon21.jpeg" alt="Pidgey" />
         <strong>Pokémon com título muito grande que quebra em várias linhas</strong>
         <span>R$129,90</span>
 
@@ -20,7 +20,7 @@ const Home: React.FC = () => {
       </li>
 
       <li>
-        <img src="https://super.abril.com.br/wp-content/uploads/2018/07/57113eb00e2163161501025cpokemon21.jpeg" alt="" />
+        <img src="https://super.abril.com.br/wp-content/uploads/2018/07/57113eb00e2163161501025cpokemon21.jpeg" alt="Pidgey" />
         <strong>Pidgey</strong>
         <span>R$129,90</span>
 
@@ -33,7 +33,7 @@ const Home: React.FC = () => {
       </li>
 
       <li>
-        <img src="https://super.abril.com.br/wp-content/uploads/2018/07/57113eb00e2163161501025cpokemon21.jpeg" alt="" />
+        <img src="https://super.abril.com.br/wp-content/uploads/2018/07/57113eb00e2163161501025cpokemon21.jpeg" alt="Pidgey" />
         <strong>Pidgey</strong>
         <span>R$129,90</span>
 
@@ -46,7 +46,7 @@ const Home: React.FC = () => {
       </li>
 
       <li>
-        <img src="https://super.abril.com.br/wp-content/uploads/2018/07/57113eb00e2163161501025cpokemon21.jpeg" alt="" />
+        <img src="https://super.abril.com.br/wp-content/uploads/2018/07/57113eb00e2163161501025cpokemon21.jpeg" alt="Pidgey" />
         <strong>Pidgey</strong>
         <span>R$129,90</span>
 
@@ -59,7 +59,7 @@ const Home: React.FC = () => {
       </li>
 
       <li>
-        <img src="https://super.abril.com.br/wp-content/uploads/2018/07/57113eb00e2163161501025cpokemon21.jpeg" alt="" />
+        <img src="https://super.abril.com.br/wp-content/uploads/2018/07/57113eb00e2163161501025cpokemon21.jpeg" alt="Pidgey" />
         <strong>Pidgey</strong>
         <span>R$129,90</span>
 
@@ -72,7 +72,7 @@ const Home: React.FC = () => {
       </li>
 
       <li>
-        <img src="https://super.abril.com.br/wp-content/uploads/2018/07/57113eb00e2163161501025cpokemon21.jpeg" alt="" />
+        <img src="https://super.abril.com.br/wp-content/uploads/2018/07/57113eb00e2163161501025cpokemon21.jpeg" alt="Pidgey" />
         <strong>Pidgey</strong>
         <span>R$129,90</span>
 
