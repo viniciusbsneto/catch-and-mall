@@ -1,36 +1,23 @@
 import styled from 'styled-components';
-import { darken } from 'polished';
+import { lighten } from 'polished';
 
 export const Container = styled.div`
-  padding: 30px;
-  background: #FFF;
-  border-radius: 4px;
-
-  footer {
-    margin-top: 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    button {
-      background: #2C4458;
-      color: #FFF;
-      border: 0;
-      border-radius: 4px;
-      padding: 12px 20px;
-      font-weight: bold;
-      text-transform: uppercase;
-      transition: background 0.2s;
-
-      &:hover {
-        background: ${darken(0.03, '#2C4458')}
-      }
-    }
-  }
+  display: flex;
+  justify-content: space-between;
 `;
 
-export const PokemonTable = styled.table`
-  width: 100%;
+export const PokemonTable = styled.main`
+  
+  h1 {
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
+
+  table {
+    background: #FFF;
+    padding: 30px;
+    border-radius: 4px;
+  }
 
   thead th {
     color: #999;
@@ -79,6 +66,46 @@ export const PokemonTable = styled.table`
   }
 `;
 
+export const PokeballSummary = styled.aside`
+  width: 100;
+  background: #FFF;
+  padding: 30px;
+  border-radius: 4px;
+  height: 300px;
+
+  h1 {
+    margin-bottom: 24px;
+  }
+
+  div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  button {
+    width: 100%;
+    background: #2C4458;
+    color: #FFF;
+    border: 0;
+    border-radius: 4px;
+    padding: 12px 20px;
+    margin-top: 32px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background 0.2s;
+
+    &:hover {
+      background: ${lighten(0.05, '#2C4458')}
+    }
+  }
+
+  hr {
+    border-bottom: 1px solid #EEE;
+  }
+`;
+
 export const Total = styled.div`
   display: flex;
   align-items: baseline;
@@ -89,7 +116,6 @@ export const Total = styled.div`
   }
 
   strong {
-    font-size: 28px;
-    margin-left: 5px;
+    font-size: 24px;
   }
 `;

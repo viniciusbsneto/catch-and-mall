@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { darken } from 'polished';
+import { lighten } from 'polished';
 
 export const PokemonList = styled.ul`
   display: grid;
@@ -13,27 +13,26 @@ export const PokemonList = styled.ul`
     background: #FFF;
     border-radius: 4px;
     padding: 20px;
-  }
 
-  img {
-    align-self: center;
-    max-width: 250px;
-  }
+    img {
+      align-self: center;
+      max-width: 250px;
+    }
 
-  > strong {
-    font-size: 16px;
-    line-height: 20px;
-    color: #333;
-    margin-top: 5px;
-  }
+    > strong {
+      font-size: 16px;
+      line-height: 20px;
+      color: #333;
+      margin-top: 5px;
+    }
 
-  > span {
-    font-size: 21px;
-    font-weight: bold;
-    margin: 5px 0 20px;
-  }
+    > span {
+      font-size: 21px;
+      font-weight: bold;
+      margin: 5px 0 20px;
+    }
 
-  button {
+    button {
     background: #2C4458;
     color: #FFF;
     border: 0;
@@ -46,24 +45,25 @@ export const PokemonList = styled.ul`
     transition: background 0.2s;
 
     &:hover {
-      background: ${darken(0.03, '#2C4458')}
+      background: ${lighten(0.05, '#2C4458')}
     }
 
-    div {
-      display: flex;
-      align-items: center;
-      padding: 12px;
-      background: rgba(0, 0, 0, 0.1);
+      div {
+        display: flex;
+        align-items: center;
+        padding: 12px;
+        background: rgba(0, 0, 0, 0.1);
 
-      svg {
-        margin-right: 5px;
+        svg {
+          margin-right: 5px;
+        }
       }
-    }
 
-    span {
-      flex: 1;
-      text-align: center;
-      font-weight: bold;
+      span {
+        flex: 1;
+        text-align: center;
+        font-weight: bold;
+      }
     }
   }
 `;
