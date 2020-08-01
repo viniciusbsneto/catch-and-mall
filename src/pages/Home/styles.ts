@@ -10,13 +10,13 @@ export const PokemonList = styled.ul`
   li {
     display: flex;
     flex-direction: column;
-    background: #FFF;
+    background: #fff;
     border-radius: 4px;
     padding: 20px;
 
     img {
       align-self: center;
-      max-width: 250px;
+      width: 200px;
     }
 
     > strong {
@@ -33,20 +33,20 @@ export const PokemonList = styled.ul`
     }
 
     button {
-    background: #2C4458;
-    color: #FFF;
-    border: 0;
-    border-radius: 4px;
-    overflow: hidden;
-    margin-top: auto;
+      background: #2c4458;
+      color: #fff;
+      border: 0;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: auto;
 
-    display: flex;
-    align-items: center;
-    transition: background 0.2s;
+      display: flex;
+      align-items: center;
+      transition: background 0.2s;
 
-    &:hover {
-      background: ${lighten(0.05, '#2C4458')}
-    }
+      &:hover {
+        background: ${lighten(0.05, '#2C4458')};
+      }
 
       div {
         display: flex;
