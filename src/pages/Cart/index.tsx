@@ -1,11 +1,30 @@
-import React from 'react';
-import { MdRemoveCircleOutline, MdAddCircleOutline, MdDelete } from 'react-icons/md';
+import React, { useContext } from 'react';
+import {
+  MdRemoveCircleOutline,
+  MdAddCircleOutline,
+  MdDelete,
+} from 'react-icons/md';
+
+import CartContext from '../../context/CartContext';
 
 import { Container, PokemonTable, PokeballSummary, Total } from './styles';
 
 const Cart: React.FC = () => {
+  const { products } = useContext(CartContext);
+
   return (
     <Container>
+      <ul>
+        {products.map(product => (
+          <>
+            <li key={product.name}>{product.name}</li>
+            <img
+              src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
+              alt="Bulbasaur"
+            />
+          </>
+        ))}
+      </ul>
       <PokemonTable>
         <h1>Minha Pokebola</h1>
         <table>
@@ -21,7 +40,10 @@ const Cart: React.FC = () => {
           <tbody>
             <tr>
               <td>
-                <img src="https://super.abril.com.br/wp-content/uploads/2018/07/57113eb00e2163161501025cpokemon21.jpeg" alt="Pidgey" />
+                <img
+                  src="https://super.abril.com.br/wp-content/uploads/2018/07/57113eb00e2163161501025cpokemon21.jpeg"
+                  alt="Pidgey"
+                />
               </td>
               <td>
                 <strong>Pidgey</strong>
@@ -42,7 +64,7 @@ const Cart: React.FC = () => {
                 <strong>R$259,80</strong>
               </td>
               <td>
-                <button>
+                <button type="button">
                   <MdDelete size={20} color="#2C4458" />
                 </button>
               </td>
@@ -50,7 +72,10 @@ const Cart: React.FC = () => {
 
             <tr>
               <td>
-                <img src="https://super.abril.com.br/wp-content/uploads/2018/07/57113eb00e2163161501025cpokemon21.jpeg" alt="Pidgey" />
+                <img
+                  src="https://super.abril.com.br/wp-content/uploads/2018/07/57113eb00e2163161501025cpokemon21.jpeg"
+                  alt="Pidgey"
+                />
               </td>
               <td>
                 <strong>Pidgey</strong>
@@ -71,7 +96,7 @@ const Cart: React.FC = () => {
                 <strong>R$259,80</strong>
               </td>
               <td>
-                <button>
+                <button type="button">
                   <MdDelete size={20} color="#2C4458" />
                 </button>
               </td>
@@ -79,7 +104,10 @@ const Cart: React.FC = () => {
 
             <tr>
               <td>
-                <img src="https://super.abril.com.br/wp-content/uploads/2018/07/57113eb00e2163161501025cpokemon21.jpeg" alt="Pidgey" />
+                <img
+                  src="https://super.abril.com.br/wp-content/uploads/2018/07/57113eb00e2163161501025cpokemon21.jpeg"
+                  alt="Pidgey"
+                />
               </td>
               <td>
                 <strong>Pidgey</strong>
@@ -100,7 +128,7 @@ const Cart: React.FC = () => {
                 <strong>R$259,80</strong>
               </td>
               <td>
-                <button>
+                <button type="button">
                   <MdDelete size={20} color="#2C4458" />
                 </button>
               </td>
@@ -108,7 +136,10 @@ const Cart: React.FC = () => {
 
             <tr>
               <td>
-                <img src="https://super.abril.com.br/wp-content/uploads/2018/07/57113eb00e2163161501025cpokemon21.jpeg" alt="Pidgey" />
+                <img
+                  src="https://super.abril.com.br/wp-content/uploads/2018/07/57113eb00e2163161501025cpokemon21.jpeg"
+                  alt="Pidgey"
+                />
               </td>
               <td>
                 <strong>Pidgey</strong>
@@ -129,7 +160,7 @@ const Cart: React.FC = () => {
                 <strong>R$259,80</strong>
               </td>
               <td>
-                <button>
+                <button type="button">
                   <MdDelete size={20} color="#2C4458" />
                 </button>
               </td>
@@ -137,7 +168,10 @@ const Cart: React.FC = () => {
 
             <tr>
               <td>
-                <img src="https://super.abril.com.br/wp-content/uploads/2018/07/57113eb00e2163161501025cpokemon21.jpeg" alt="Pidgey" />
+                <img
+                  src="https://super.abril.com.br/wp-content/uploads/2018/07/57113eb00e2163161501025cpokemon21.jpeg"
+                  alt="Pidgey"
+                />
               </td>
               <td>
                 <strong>Pidgey</strong>
@@ -158,7 +192,7 @@ const Cart: React.FC = () => {
                 <strong>R$259,80</strong>
               </td>
               <td>
-                <button>
+                <button type="button">
                   <MdDelete size={20} color="#2C4458" />
                 </button>
               </td>
@@ -166,7 +200,10 @@ const Cart: React.FC = () => {
 
             <tr>
               <td>
-                <img src="https://super.abril.com.br/wp-content/uploads/2018/07/57113eb00e2163161501025cpokemon21.jpeg" alt="Pidgey" />
+                <img
+                  src="https://super.abril.com.br/wp-content/uploads/2018/07/57113eb00e2163161501025cpokemon21.jpeg"
+                  alt="Pidgey"
+                />
               </td>
               <td>
                 <strong>Pidgey</strong>
@@ -187,7 +224,7 @@ const Cart: React.FC = () => {
                 <strong>R$259,80</strong>
               </td>
               <td>
-                <button>
+                <button type="button">
                   <MdDelete size={20} color="#2C4458" />
                 </button>
               </td>
@@ -216,6 +253,6 @@ const Cart: React.FC = () => {
       </PokeballSummary>
     </Container>
   );
-}
+};
 
 export default Cart;

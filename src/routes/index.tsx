@@ -9,6 +9,6 @@ const Routes: React.FC = () => (
     <Route path="/" exact component={Home} />
     <Route path="/cart" component={Cart} />
   </Switch>
-)
+);
 
 export default Routes;

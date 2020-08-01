@@ -7,14 +7,13 @@ export const Container = styled.div`
 `;
 
 export const PokemonTable = styled.main`
-  
   h1 {
     font-size: 24px;
     margin-bottom: 24px;
   }
 
   table {
-    background: #FFF;
+    background: #fff;
     padding: 30px;
     border-radius: 4px;
   }
@@ -27,7 +26,7 @@ export const PokemonTable = styled.main`
 
   tbody td {
     padding: 12px;
-    border-bottom: 1px solid #EEE;
+    border-bottom: 1px solid #eee;
   }
 
   img {
@@ -51,7 +50,7 @@ export const PokemonTable = styled.main`
     align-items: center;
 
     input {
-      border: 1px solid #DDD;
+      border: 1px solid #ddd;
       border-radius: 4px;
       color: #666;
       padding: 6px;
@@ -68,7 +67,7 @@ export const PokemonTable = styled.main`
 
 export const PokeballSummary = styled.aside`
   width: 100;
-  background: #FFF;
+  background: #fff;
   padding: 30px;
   border-radius: 4px;
   height: 300px;
@@ -86,8 +85,8 @@ export const PokeballSummary = styled.aside`
 
   button {
     width: 100%;
-    background: #2C4458;
-    color: #FFF;
+    background: #2c4458;
+    color: #fff;
     border: 0;
     border-radius: 4px;
     padding: 12px 20px;
@@ -97,12 +96,12 @@ export const PokeballSummary = styled.aside`
     transition: background 0.2s;
 
     &:hover {
-      background: ${lighten(0.05, '#2C4458')}
+      background: ${lighten(0.05, '#2C4458')};
     }
   }
 
   hr {
-    border-bottom: 1px solid #EEE;
+    border-bottom: 1px solid #eee;
   }
 `;
 

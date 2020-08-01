@@ -22,7 +22,7 @@ const Header: React.FC = () => {
         <MdShoppingBasket size={36} color="#FFF" />
       </Cart>
     </Container>
-  )
-}
+  );
+};
 
 export default Header;
