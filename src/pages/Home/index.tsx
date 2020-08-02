@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { MdShoppingCart } from 'react-icons/md';
+import {
+  MdShoppingCart,
+  MdNavigateBefore,
+  MdNavigateNext,
+} from 'react-icons/md';
 
-import api from '../../services/api';
+import axios from 'axios';
 
-import { PokemonList } from './styles';
+import { Content, PokemonList, Pagination } from './styles';
 
 interface PokeAPIResponse {
   url: string;
@@ -17,17 +21,25 @@ interface Pokemon {
 const Home: React.FC = () => {
   const [pokemon, setPokemon] = useState<Pokemon[]>([]);
   const [loading, setLoading] = useState(true);
+  const [currentPageURL, setCurrentPageURL] = useState(
+    'https://pokeapi.co/api/v2/pokemon'
+  );
+  const [nextPageURL, setNextPageURL] = useState('');
+  const [previousPageURL, setPreviousPageURL] = useState('');
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     setLoading(true);
     async function loadPokemon(): Promise<void> {
       try {
-        const apiResponse = await api.get('pokemon');
-        const { results } = apiResponse.data;
+        const apiResponse = await axios.get(currentPageURL);
+        const { next, previous, results } = apiResponse.data;
+        setNextPageURL(next);
+        setPreviousPageURL(previous);
         const pokemonList: Pokemon[] = await Promise.all(
           results.map(
             async (item: PokeAPIResponse): Promise<Pokemon> => {
-              const res = await api.get(item.url);
+              const res = await axios.get(item.url);
               const { id, name, sprites } = res.data;
               const sprite = sprites.front_default;
               const newPokemon = {
@@ -39,18 +51,46 @@ const Home: React.FC = () => {
             }
           )
         );
-        setPokemon([...pokemon, ...pokemonList]);
+        setPokemon(pokemonList);
         setLoading(false);
       } catch (err) {
+        // Tratar a exceção
         console.log(err);
       }
     }
     loadPokemon();
-  }, []);
+  }, [currentPageURL]);
+
+  function goToNextPage(): void {
+    setPage(page + 1);
+    setCurrentPageURL(nextPageURL);
+  }
+
+  function goToPreviousPage(): void {
+    setPage(page - 1);
+    setCurrentPageURL(previousPageURL);
+  }
 
   return (
     <>
-      <h1>Pokémon</h1>
+      <Content>
+        <h1>Pokémon</h1>
+        <Pagination>
+          <div>
+            {previousPageURL && (
+              <button type="button" onClick={goToPreviousPage}>
+                <MdNavigateBefore size={24} />
+              </button>
+            )}
+            <span>Página {page}</span>
+            {nextPageURL && (
+              <button type="button" onClick={goToNextPage}>
+                <MdNavigateNext size={24} />
+              </button>
+            )}
+          </div>
+        </Pagination>
+      </Content>
       {loading ? (
         <span>Carregando...</span>
       ) : (
