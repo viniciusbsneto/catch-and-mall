@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { MdShoppingBasket } from 'react-icons/md';
 
-import { Container, Cart } from './styles';
+import { Container, Pokeball } from './styles';
 
 import logoImg from '../../assets/images/logo.svg';
 
@@ -14,13 +14,13 @@ const Header: React.FC = () => {
         <img src={logoImg} alt="Catch N' Mall" />
       </Link>
 
-      <Cart to="/cart">
+      <Pokeball to="/pokeball">
         <div>
           <strong>Minha pokebola</strong>
           <span>2 pokémon</span>
         </div>
         <MdShoppingBasket size={36} color="#FFF" />
-      </Cart>
+      </Pokeball>
     </Container>
   );
 };

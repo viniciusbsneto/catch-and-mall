@@ -7,6 +7,8 @@ import {
 
 import axios from 'axios';
 
+import { usePokeball } from '../../hooks/PokeballContext';
+
 import { Content, PokemonList, Pagination } from './styles';
 
 interface PokeAPIResponse {
@@ -27,6 +29,7 @@ const Home: React.FC = () => {
   const [nextPageURL, setNextPageURL] = useState('');
   const [previousPageURL, setPreviousPageURL] = useState('');
   const [page, setPage] = useState(1);
+  const { handleCapturePokemon } = usePokeball();
 
   useEffect(() => {
     setLoading(true);
@@ -61,15 +64,15 @@ const Home: React.FC = () => {
     loadPokemon();
   }, [currentPageURL]);
 
-  function goToNextPage(): void {
+  const goToNextPage = (): void => {
     setPage(page + 1);
     setCurrentPageURL(nextPageURL);
-  }
+  };
 
-  function goToPreviousPage(): void {
+  const goToPreviousPage = (): void => {
     setPage(page - 1);
     setCurrentPageURL(previousPageURL);
-  }
+  };
 
   return (
     <>
@@ -103,7 +106,7 @@ const Home: React.FC = () => {
               </strong>
               <span>円129,90</span>
 
-              <button type="button">
+              <button type="button" onClick={() => handleCapturePokemon(p)}>
                 <div>
                   <MdShoppingCart size={16} color="#FFF" /> 3
                 </div>

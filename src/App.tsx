@@ -5,26 +5,16 @@ import GlobalStyle from './styles/global';
 import Header from './components/Header';
 import Routes from './routes';
 
-import CartContext from './context/CartContext';
+import { PokeballProvider } from './hooks/PokeballContext';
 
 const App: React.FC = () => (
   <>
-    <CartContext.Provider
-      value={{
-        products: [
-          {
-            name: 'Bulbasaur',
-            imageURL:
-              'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png',
-          },
-        ],
-      }}
-    >
+    <PokeballProvider>
       <BrowserRouter>
         <Header />
         <Routes />
       </BrowserRouter>
-    </CartContext.Provider>
+    </PokeballProvider>
     <GlobalStyle />
   </>
 );
