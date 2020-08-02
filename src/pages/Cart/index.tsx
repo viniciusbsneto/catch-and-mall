@@ -14,17 +14,6 @@ const Cart: React.FC = () => {
 
   return (
     <Container>
-      <ul>
-        {products.map(product => (
-          <>
-            <li key={product.name}>{product.name}</li>
-            <img
-              src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
-              alt="Bulbasaur"
-            />
-          </>
-        ))}
-      </ul>
       <PokemonTable>
         <h1>Minha Pokebola</h1>
         <table>

@@ -1,11 +1,18 @@
 import styled from 'styled-components';
 import { lighten } from 'polished';
 
+export const Content = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
 export const PokemonList = styled.ul`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
   list-style: none;
+  margin-top: 20px;
 
   li {
     display: flex;
@@ -64,6 +71,23 @@ export const PokemonList = styled.ul`
         text-align: center;
         font-weight: bold;
       }
+    }
+  }
+`;
+
+export const Pagination = styled.footer`
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    button {
+      color: #2c4458;
+      border: 0;
+    }
+
+    span {
+      color: #333;
     }
   }
 `;
