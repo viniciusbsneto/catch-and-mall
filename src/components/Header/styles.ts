@@ -7,7 +7,7 @@ export const Container = styled.header`
   align-items: center;
 `;
 
-export const Cart = styled(Link)`
+export const Pokeball = styled(Link)`
   display: flex;
   align-items: center;
   text-decoration: none;
