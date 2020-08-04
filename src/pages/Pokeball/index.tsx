@@ -9,8 +9,34 @@ import { usePokeball } from '../../hooks/PokeballContext';
 
 import { Container, PokemonTable, PokeballSummary, Total } from './styles';
 
+interface Pokemon {
+  id: number;
+  name: string;
+  sprite: string;
+  price: number;
+  priceFormatted: string;
+  amount: number;
+  subtotal: number;
+  subtotalFormatted: string;
+}
+
 const Pokeball: React.FC = () => {
-  const { capturedPokemon } = usePokeball();
+  const {
+    capturedPokemon,
+    shippingValueFormatted,
+    totalFormatted,
+    totalWithShippingFormatted,
+    handleReleaseFromPokeball,
+    updateAmountSubTotal,
+  } = usePokeball();
+
+  const increment = (pokemon: Pokemon): void => {
+    updateAmountSubTotal(pokemon.id, pokemon.amount + 1);
+  };
+
+  const decrement = (pokemon: Pokemon): void => {
+    updateAmountSubTotal(pokemon.id, pokemon.amount - 1);
+  };
 
   return (
     <Container>
@@ -34,25 +60,37 @@ const Pokeball: React.FC = () => {
                 </td>
                 <td>
                   <strong>{p.name}</strong>
-                  <span>円129,90</span>
+                  <span>{p.priceFormatted}</span>
                 </td>
                 <td>
                   <div>
                     <button type="button">
-                      <MdRemoveCircleOutline size={20} color="#2C4458" />
+                      <MdRemoveCircleOutline
+                        size={20}
+                        color="#2C4458"
+                        onClick={() => decrement(p)}
+                      />
                     </button>
-                    <input type="number" readOnly value={2} />
+                    <input type="number" readOnly value={p.amount} />
                     <button type="button">
-                      <MdAddCircleOutline size={20} color="#2C4458" />
+                      <MdAddCircleOutline
+                        size={20}
+                        color="#2C4458"
+                        onClick={() => increment(p)}
+                      />
                     </button>
                   </div>
                 </td>
                 <td>
-                  <strong>R$259,80</strong>
+                  <strong>{p.subtotalFormatted}</strong>
                 </td>
                 <td>
                   <button type="button">
-                    <MdDelete size={20} color="#2C4458" />
+                    <MdDelete
+                      size={20}
+                      color="#2C4458"
+                      onClick={() => handleReleaseFromPokeball(p.id)}
+                    />
                   </button>
                 </td>
               </tr>
@@ -63,17 +101,22 @@ const Pokeball: React.FC = () => {
       <PokeballSummary>
         <h1>Pokémon capturados</h1>
         <div>
-          <span>2 pokémon</span>
-          <span>円259,80</span>
+          <span>
+            {capturedPokemon.reduce((total, pokemon) => {
+              return total + pokemon.amount;
+            }, 0)}{' '}
+            pokémon
+          </span>
+          <span>{totalFormatted}</span>
         </div>
         <div>
-          <span>Transferência</span>
-          <span>円100,00</span>
+          <span>Frete</span>
+          <span>{shippingValueFormatted}</span>
         </div>
         <hr />
         <Total>
           <span>TOTAL</span>
-          <strong>円359,80</strong>
+          <strong>{totalWithShippingFormatted}</strong>
         </Total>
         <hr />
         <button type="button">FINALIZAR CAPTURA</button>

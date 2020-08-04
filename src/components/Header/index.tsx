@@ -1,13 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { MdShoppingBasket } from 'react-icons/md';
+import { Icon } from '@iconify/react';
+import pokeballIcon from '@iconify/icons-gg/pokemon';
 
 import { Container, Pokeball } from './styles';
 
 import logoImg from '../../assets/images/logo.svg';
 
+import { usePokeball } from '../../hooks/PokeballContext';
+
 const Header: React.FC = () => {
+  const { capturedPokemon } = usePokeball();
+
   return (
     <Container>
       <Link to="/">
@@ -17,9 +22,9 @@ const Header: React.FC = () => {
       <Pokeball to="/pokeball">
         <div>
           <strong>Minha pokebola</strong>
-          <span>2 pokémon</span>
+          <span>{capturedPokemon.length} pokémon</span>
         </div>
-        <MdShoppingBasket size={36} color="#FFF" />
+        <Icon icon={pokeballIcon} height="52" color="#FFF" />
       </Pokeball>
     </Container>
   );
