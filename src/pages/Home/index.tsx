@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import {
-  MdShoppingCart,
-  MdNavigateBefore,
-  MdNavigateNext,
-} from 'react-icons/md';
+import { Icon } from '@iconify/react';
+import pokeballIcon from '@iconify/icons-gg/pokemon';
+import { MdNavigateBefore, MdNavigateNext } from 'react-icons/md';
 
 import axios from 'axios';
-
+import { formatPrice } from '../../util/format';
 import { usePokeball } from '../../hooks/PokeballContext';
 
 import { Content, PokemonList, Pagination } from './styles';
@@ -18,6 +16,11 @@ interface Pokemon {
   id: number;
   name: string;
   sprite: string;
+  price: number;
+  priceFormatted: string;
+  amount: number;
+  subtotal: number;
+  subtotalFormatted: string;
 }
 
 const Home: React.FC = () => {
@@ -45,10 +48,20 @@ const Home: React.FC = () => {
               const res = await axios.get(item.url);
               const { id, name, sprites } = res.data;
               const sprite = sprites.front_default;
+              const price = Math.floor(Math.random() * 100) + 1;
+              const priceFormatted = formatPrice(price);
+              const amount = 0;
+              const subtotal = price * amount;
+              const subtotalFormatted = formatPrice(subtotal);
               const newPokemon = {
                 id,
                 name,
                 sprite,
+                price,
+                priceFormatted,
+                amount,
+                subtotal,
+                subtotalFormatted,
               };
               return newPokemon;
             }
@@ -104,11 +117,10 @@ const Home: React.FC = () => {
               <strong>
                 {p.id}. {p.name}
               </strong>
-              <span>円129,90</span>
-
+              <span>{p.priceFormatted}</span>
               <button type="button" onClick={() => handleCapturePokemon(p)}>
                 <div>
-                  <MdShoppingCart size={16} color="#FFF" /> 3
+                  <Icon icon={pokeballIcon} height="22" color="white" />
                 </div>
                 <span>CAPTURAR POKÉMON</span>
               </button>
