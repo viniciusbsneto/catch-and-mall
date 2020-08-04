@@ -23,6 +23,7 @@
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
     "redux-saga": "^1.1.3",
+    "seedrandom": "^3.0.5",
     "styled-components": "^5.1.1",
     "typesafe-actions": "^5.1.0",
     "typescript": "~3.7.2"
@@ -50,6 +51,7 @@
     "@types/react-redux": "^7.1.9",
     "@types/react-router-dom": "^5.1.5",
     "@types/redux-saga": "^0.10.5",
+    "@types/seedrandom": "^2.4.28",
     "@types/styled-components": "^5.1.1",
     "@typescript-eslint/eslint-plugin": "^3.7.0",
     "@typescript-eslint/parser": "^3.7.0",
