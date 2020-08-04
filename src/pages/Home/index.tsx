@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import seedrandom from 'seedrandom';
 import { Icon } from '@iconify/react';
 import pokeballIcon from '@iconify/icons-gg/pokemon';
 import { MdNavigateBefore, MdNavigateNext } from 'react-icons/md';
@@ -16,6 +17,7 @@ interface Pokemon {
   id: number;
   name: string;
   sprite: string;
+  types: string[];
   price: number;
   priceFormatted: string;
   amount: number;
@@ -46,9 +48,11 @@ const Home: React.FC = () => {
           results.map(
             async (item: PokeAPIResponse): Promise<Pokemon> => {
               const res = await axios.get(item.url);
-              const { id, name, sprites } = res.data;
+              const { id, name, sprites, types: pokeTypes } = res.data;
               const sprite = sprites.front_default;
-              const price = Math.floor(Math.random() * 100) + 1;
+              const types = pokeTypes.map((t: any) => t.type.name);
+              const rng = seedrandom(name);
+              const price = rng() * 100;
               const priceFormatted = formatPrice(price);
               const amount = 0;
               const subtotal = price * amount;
@@ -57,12 +61,14 @@ const Home: React.FC = () => {
                 id,
                 name,
                 sprite,
+                types,
                 price,
                 priceFormatted,
                 amount,
                 subtotal,
                 subtotalFormatted,
               };
+              console.log(newPokemon);
               return newPokemon;
             }
           )

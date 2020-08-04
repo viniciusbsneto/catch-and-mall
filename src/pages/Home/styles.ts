@@ -31,6 +31,7 @@ export const PokemonList = styled.ul`
       line-height: 20px;
       color: #333;
       margin-top: 5px;
+      text-transform: capitalize;
     }
 
     > span {
