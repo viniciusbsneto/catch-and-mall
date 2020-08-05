@@ -1,31 +1,54 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
+import Switch from 'react-switch';
+import { ThemeContext } from 'styled-components';
+import { shade } from 'polished';
 import { Icon } from '@iconify/react';
 import pokeballIcon from '@iconify/icons-gg/pokemon';
 
-import { Container, Pokeball } from './styles';
-
 import logoImg from '../../assets/images/logo.svg';
+
+import { Container, Content, Pokeball } from './styles';
 
 import { usePokeball } from '../../hooks/PokeballContext';
 
-const Header: React.FC = () => {
+interface Props {
+  toggleTheme(): void;
+}
+
+const Header: React.FC<Props> = ({ toggleTheme }) => {
   const { capturedPokemon } = usePokeball();
+  const { colors, title } = useContext(ThemeContext);
 
   return (
     <Container>
-      <Link to="/">
-        <img src={logoImg} alt="Catch N' Mall" />
-      </Link>
+      <Content>
+        <Link to="/">
+          <img src={logoImg} alt="Catch N' Mall" />
+        </Link>
 
-      <Pokeball to="/pokeball">
         <div>
-          <strong>Minha pokebola</strong>
-          <span>{capturedPokemon.length} pokémon</span>
+          <Switch
+            onChange={toggleTheme}
+            checked={title === 'water'}
+            checkedIcon={false}
+            uncheckedIcon={false}
+            height={10}
+            width={40}
+            handleDiameter={20}
+            onColor={colors.button}
+            offColor={shade(0.15, colors.header)}
+          />
+          <Pokeball to="/pokeball">
+            <div>
+              <strong>Minha pokebola</strong>
+              <span>{capturedPokemon.length} pokémon</span>
+            </div>
+            <Icon icon={pokeballIcon} height="58" color="#FFF" />
+          </Pokeball>
         </div>
-        <Icon icon={pokeballIcon} height="52" color="#FFF" />
-      </Pokeball>
+      </Content>
     </Container>
   );
 };

@@ -1,7 +1,34 @@
 import styled from 'styled-components';
 import { lighten } from 'polished';
 
-export const Content = styled.div`
+export const Container = styled.div``;
+
+export const NavigationHeader = styled.div`
+  max-width: 1120px;
+  margin: 64px auto 0;
+  display: flex;
+  align-items: center;
+`;
+
+export const Pagination = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+
+  button {
+    color: ${props => props.theme.colors.button};
+    border: 0;
+  }
+
+  span {
+    color: #333;
+  }
+`;
+
+export const Content = styled.main`
+  max-width: 1120px;
+  margin: 32px auto 64px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -12,7 +39,7 @@ export const PokemonList = styled.ul`
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
   list-style: none;
-  margin-top: 20px;
+  flex: 1;
 
   li {
     display: flex;
@@ -41,7 +68,7 @@ export const PokemonList = styled.ul`
     }
 
     button {
-      background: #2c4458;
+      background: ${props => props.theme.colors.button};
       color: #fff;
       border: 0;
       border-radius: 4px;
@@ -53,7 +80,7 @@ export const PokemonList = styled.ul`
       transition: background 0.2s;
 
       &:hover {
-        background: ${lighten(0.05, '#2C4458')};
+        background: ${props => lighten(0.05, props.theme.colors.button)};
       }
 
       div {
@@ -72,23 +99,6 @@ export const PokemonList = styled.ul`
         text-align: center;
         font-weight: bold;
       }
-    }
-  }
-`;
-
-export const Pagination = styled.footer`
-  div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    button {
-      color: #2c4458;
-      border: 0;
-    }
-
-    span {
-      color: #333;
     }
   }
 `;

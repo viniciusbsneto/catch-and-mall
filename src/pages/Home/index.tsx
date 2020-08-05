@@ -8,10 +8,22 @@ import axios from 'axios';
 import { formatPrice } from '../../util/format';
 import { usePokeball } from '../../hooks/PokeballContext';
 
-import { Content, PokemonList, Pagination } from './styles';
+import {
+  Container,
+  Content,
+  NavigationHeader,
+  PokemonList,
+  Pagination,
+} from './styles';
 
 interface PokeAPIResponse {
   url: string;
+}
+
+interface PokemonType {
+  type: {
+    name: string;
+  };
 }
 interface Pokemon {
   id: number;
@@ -50,7 +62,7 @@ const Home: React.FC = () => {
               const res = await axios.get(item.url);
               const { id, name, sprites, types: pokeTypes } = res.data;
               const sprite = sprites.front_default;
-              const types = pokeTypes.map((t: any) => t.type.name);
+              const types = pokeTypes.map((t: PokemonType) => t.type.name);
               const rng = seedrandom(name);
               const price = rng() * 100;
               const priceFormatted = formatPrice(price);
@@ -68,7 +80,6 @@ const Home: React.FC = () => {
                 subtotal,
                 subtotalFormatted,
               };
-              console.log(newPokemon);
               return newPokemon;
             }
           )
@@ -94,47 +105,48 @@ const Home: React.FC = () => {
   };
 
   return (
-    <>
-      <Content>
+    <Container>
+      <NavigationHeader>
         <h1>Pokémon</h1>
         <Pagination>
-          <div>
-            {previousPageURL && (
-              <button type="button" onClick={goToPreviousPage}>
-                <MdNavigateBefore size={24} />
-              </button>
-            )}
-            <span>Página {page}</span>
-            {nextPageURL && (
-              <button type="button" onClick={goToNextPage}>
-                <MdNavigateNext size={24} />
-              </button>
-            )}
-          </div>
+          {previousPageURL && (
+            <button type="button" onClick={goToPreviousPage}>
+              <MdNavigateBefore size={24} />
+            </button>
+          )}
+          <span>Página {page}</span>
+          {nextPageURL && (
+            <button type="button" onClick={goToNextPage}>
+              <MdNavigateNext size={24} />
+            </button>
+          )}
         </Pagination>
+      </NavigationHeader>
+
+      <Content>
+        {loading ? (
+          <span>Carregando...</span>
+        ) : (
+          <PokemonList>
+            {pokemon.map(p => (
+              <li key={p.id}>
+                <img src={p.sprite} alt={p.name} />
+                <strong>
+                  {p.id}. {p.name}
+                </strong>
+                <span>{p.priceFormatted}</span>
+                <button type="button" onClick={() => handleCapturePokemon(p)}>
+                  <div>
+                    <Icon icon={pokeballIcon} height="22" color="white" />
+                  </div>
+                  <span>CAPTURAR POKÉMON</span>
+                </button>
+              </li>
+            ))}
+          </PokemonList>
+        )}
       </Content>
-      {loading ? (
-        <span>Carregando...</span>
-      ) : (
-        <PokemonList>
-          {pokemon.map(p => (
-            <li key={p.id}>
-              <img src={p.sprite} alt={p.name} />
-              <strong>
-                {p.id}. {p.name}
-              </strong>
-              <span>{p.priceFormatted}</span>
-              <button type="button" onClick={() => handleCapturePokemon(p)}>
-                <div>
-                  <Icon icon={pokeballIcon} height="22" color="white" />
-                </div>
-                <span>CAPTURAR POKÉMON</span>
-              </button>
-            </li>
-          ))}
-        </PokemonList>
-      )}
-    </>
+    </Container>
   );
 };
 
