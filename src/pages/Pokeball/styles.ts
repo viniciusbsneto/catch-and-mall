@@ -1,22 +1,25 @@
 import styled from 'styled-components';
 import { lighten } from 'polished';
+import { Link } from 'react-router-dom';
 
-export const Container = styled.div`
-  display: flex;
-  justify-content: space-between;
+export const Container = styled.div``;
+
+export const Content = styled.main`
+  max-width: 1120px;
+  margin: 64px auto;
 `;
 
-export const PokemonTable = styled.main`
-  h1 {
-    font-size: 24px;
-    margin-bottom: 24px;
-  }
+export const PokeballWrapper = styled.div`
+  display: flex;
+`;
 
-  table {
-    background: #fff;
-    padding: 30px;
-    border-radius: 4px;
-  }
+export const PokemonTable = styled.table`
+  flex: 1;
+  background: #fff;
+  padding: 30px;
+  border-radius: 4px;
+  margin-right: 120px;
+  margin-top: 32px;
 
   thead th {
     color: #999;
@@ -36,6 +39,7 @@ export const PokemonTable = styled.main`
   strong {
     color: #333;
     display: block;
+    text-transform: capitalize;
   }
 
   span {
@@ -66,11 +70,11 @@ export const PokemonTable = styled.main`
 `;
 
 export const PokeballSummary = styled.aside`
-  width: 100;
+  width: 360px;
+  height: 300px;
   background: #fff;
   padding: 30px;
   border-radius: 4px;
-  height: 300px;
 
   h1 {
     margin-bottom: 24px;
@@ -85,7 +89,7 @@ export const PokeballSummary = styled.aside`
 
   button {
     width: 100%;
-    background: #2c4458;
+    background: ${props => props.theme.colors.button};
     color: #fff;
     border: 0;
     border-radius: 4px;
@@ -117,4 +121,14 @@ export const Total = styled.div`
   strong {
     font-size: 24px;
   }
+`;
+
+export const PokeballEmpty = styled.div`
+  flex: 1;
+  background: #fff;
+  padding: 30px;
+  border-radius: 4px;
+  margin-right: 120px;
+  margin-top: 32px;
+  color: #999;
 `;
