@@ -31,10 +31,8 @@ const PokeballContext = createContext<PokeballContextData>(
 
 const PokeballProvider: React.FC = ({ children }) => {
   const [totalFormatted, setTotalFormatted] = useState('');
-  const [shippingValue, setShippingValue] = useState(100);
-  const [shippingValueFormatted, setShippingValueFormatted] = useState(
-    formatPrice(100)
-  );
+  const [shippingValue] = useState(100);
+  const [shippingValueFormatted] = useState(formatPrice(100));
   const [totalWithShippingFormatted, setTotalWithShippingFormatted] = useState(
     ''
   );
