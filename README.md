@@ -50,6 +50,7 @@
 ## :speech_balloon: About
 
 Catch N' Mall - is a an online Pokémon store.
+Check it out at https://catch-n-mall.netlify.app/
 
 ---
 
