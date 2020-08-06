@@ -70,9 +70,7 @@ const Pokeball: React.FC = () => {
                       <img src={p.sprite} alt={p.name} />
                     </td>
                     <td>
-                      <strong>
-                        {p.id}. {p.name}
-                      </strong>
+                      <strong>{p.name}</strong>
                       <span>{p.priceFormatted}</span>
                     </td>
                     <td>
@@ -117,7 +115,7 @@ const Pokeball: React.FC = () => {
                 <span>
                   {capturedPokemon.reduce((total, pokemon) => {
                     return total + pokemon.amount;
-                  }, 0)}
+                  }, 0)}{' '}
                   pokémon
                 </span>
                 <span>{totalFormatted}</span>
