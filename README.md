@@ -50,10 +50,13 @@
 ## :speech_balloon: About
 
 Catch N' Mall - is a an online Pokémon store.
-Check it out at https://catch-n-mall.netlify.app/
+Try out at https://catch-n-mall.netlify.app/
 
 ---
+## Layout
+[Figma](https://www.figma.com/file/Gc5rUs6DBItoDxjUJAHVB0/Catch-N-Mall?node-id=0%3A1)
 
+---
 ## :bulb: Features
 
 - [x] Homepage with water or fire Pokémon from PokeAPI
@@ -124,6 +127,7 @@ The following tools were used in the construction of the project:
 -   **[Iconify](https://iconify.design/)**
 -   **[React-Switch](https://www.npmjs.com/package/react-switch)**
 -   **[Axios](https://github.com/axios/axios)**
+-   **[Immer](https://immerjs.github.io/immer/docs/introduction)**
 
 > See the file  [package.json](https://github.com/viniciusbsneto/catch-and-mall/blob/master/package.json)
 
@@ -135,6 +139,7 @@ The following tools were used in the construction of the project:
 -   Code Formatter:  **[Prettier](https://prettier.io/)**
 -   Editor Plugin:  **[EditorConfig](https://editorconfig.org/)**
 -   Markdown:  **[StackEdit](https://stackedit.io/)**,  **[Markdown Emoji](https://gist.github.com/rxaviers/7360908)**
+-   Layout: **[Figma](https://www.figma.com/)**
 
 
 ---
