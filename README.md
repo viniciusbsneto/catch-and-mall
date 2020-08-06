@@ -71,15 +71,15 @@ Check it out at https://catch-n-mall.netlify.app/
 ---
 
 ## :hammer_and_wrench: Pending (in progress...) :hourglass_flowing_sand:
-1. [ ] **Search input**
-  - I intend to add a search input in the header so users can search for pokémon.
-2. [ ] **Responsive Design**
+1. [ ] **Responsive Design**
   - Application is not entirely responsive yet. Still working on that.
 2. [ ] **Tests**
   - I'm currently writing tests with Jest. I should be pushing some tests very soon.
-3. [ ] **Pagination**
+3. [ ] **Search input**
+  - I intend to add a search input in the header so users can search for pokémon.
+4. [ ] **Pagination**
   - I plan on adding pagination to the API results so all pokémon are not loaded at once.
-4. [ ] **Improve performance**
+5. [ ] **Improve performance**
   - Look for re-rendering and eliminate them using useCallback hook.
 
 ### :pushpin: Pre-requisites
