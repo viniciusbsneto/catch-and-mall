@@ -83,7 +83,7 @@ Try out at https://catch-n-mall.netlify.app/
 4. [ ] **Pagination**
   - I plan on adding pagination to the API results so all pokémon are not loaded at once.
 5. [ ] **Improve performance**
-  - Look for re-rendering and eliminate them using useCallback hook.
+  - Look for re-rendering and eliminate them.
 
 ### :pushpin: Pre-requisites
 
