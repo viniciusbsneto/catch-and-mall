@@ -11,7 +11,7 @@ import Routes from './routes';
 
 import Header from './components/Header';
 
-import { PokeballProvider } from './hooks/PokeballContext';
+import { PokeballProvider } from './hooks/pokeball';
 
 const App: React.FC = () => {
   const [theme, setTheme] = usePersistedState<DefaultTheme>('theme', water);

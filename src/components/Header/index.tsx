@@ -11,7 +11,7 @@ import logoImg from '../../assets/images/logo.svg';
 
 import { Container, Content, Pokeball } from './styles';
 
-import { usePokeball } from '../../hooks/PokeballContext';
+import { usePokeball } from '../../hooks/pokeball';
 
 interface Props {
   toggleTheme(): void;
