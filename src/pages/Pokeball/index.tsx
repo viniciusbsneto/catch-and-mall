@@ -1,12 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import {
   MdRemoveCircleOutline,
   MdAddCircleOutline,
   MdDelete,
 } from 'react-icons/md';
 
-import { usePokeball } from '../../hooks/PokeballContext';
+import { usePokeball } from '../../hooks/pokeball';
 
 import {
   Container,
@@ -15,7 +14,6 @@ import {
   PokemonTable,
   PokeballSummary,
   Total,
-  PokeballEmpty,
 } from './styles';
 
 interface Pokemon {
@@ -51,94 +49,88 @@ const Pokeball: React.FC = () => {
     <Container>
       <Content>
         <h1>Minha Pokebola</h1>
-        {capturedPokemon ? (
-          <PokeballWrapper>
-            <PokemonTable>
-              <thead>
-                <tr>
-                  <th />
-                  <th>POKÉMON</th>
-                  <th>QTD</th>
-                  <th>SUBTOTAL</th>
-                  <th />
-                </tr>
-              </thead>
-              <tbody>
-                {capturedPokemon.map(p => (
-                  <tr key={p.id}>
-                    <td>
-                      <img src={p.sprite} alt={p.name} />
-                    </td>
-                    <td>
-                      <strong>{p.name}</strong>
-                      <span>{p.priceFormatted}</span>
-                    </td>
-                    <td>
-                      <div>
-                        <button type="button">
-                          <MdRemoveCircleOutline
-                            size={20}
-                            color="#2C4458"
-                            onClick={() => decrement(p)}
-                          />
-                        </button>
-                        <input type="number" readOnly value={p.amount} />
-                        <button type="button">
-                          <MdAddCircleOutline
-                            size={20}
-                            color="#2C4458"
-                            onClick={() => increment(p)}
-                          />
-                        </button>
-                      </div>
-                    </td>
-                    <td>
-                      <strong>{p.subtotalFormatted}</strong>
-                    </td>
-                    <td>
+
+        <PokeballWrapper>
+          <PokemonTable>
+            <thead>
+              <tr>
+                <th />
+                <th>POKÉMON</th>
+                <th>QTD</th>
+                <th>SUBTOTAL</th>
+                <th />
+              </tr>
+            </thead>
+            <tbody>
+              {capturedPokemon.map(p => (
+                <tr key={p.id}>
+                  <td>
+                    <img src={p.sprite} alt={p.name} />
+                  </td>
+                  <td>
+                    <strong>{p.name}</strong>
+                    <span>{p.priceFormatted}</span>
+                  </td>
+                  <td>
+                    <div>
                       <button type="button">
-                        <MdDelete
+                        <MdRemoveCircleOutline
                           size={20}
                           color="#2C4458"
-                          onClick={() => handleReleaseFromPokeball(p.id)}
+                          onClick={() => decrement(p)}
                         />
                       </button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </PokemonTable>
+                      <input type="number" readOnly value={p.amount} />
+                      <button type="button">
+                        <MdAddCircleOutline
+                          size={20}
+                          color="#2C4458"
+                          onClick={() => increment(p)}
+                        />
+                      </button>
+                    </div>
+                  </td>
+                  <td>
+                    <strong>{p.subtotalFormatted}</strong>
+                  </td>
+                  <td>
+                    <button type="button">
+                      <MdDelete
+                        size={20}
+                        color="#2C4458"
+                        onClick={() => handleReleaseFromPokeball(p.id)}
+                      />
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </PokemonTable>
 
-            <PokeballSummary>
-              <h1>Pokémon capturados</h1>
-              <div>
-                <span>
-                  {capturedPokemon.reduce((total, pokemon) => {
-                    return total + pokemon.amount;
-                  }, 0)}{' '}
-                  pokémon
-                </span>
-                <span>{totalFormatted}</span>
-              </div>
-              <div>
-                <span>Frete</span>
-                <span>{shippingValueFormatted}</span>
-              </div>
-              <hr />
-              <Total>
-                <span>TOTAL</span>
-                <strong>{totalWithShippingFormatted}</strong>
-              </Total>
-              <hr />
-              <button type="button">FINALIZAR CAPTURA</button>
-            </PokeballSummary>
-          </PokeballWrapper>
-        ) : (
-          <PokeballEmpty>
-            <strong>Você ainda não capturou nenhum pokémon</strong>
-            <Link to="/">Voltar para a página inicial.</Link>
-          </PokeballEmpty>
-        )}
+          <PokeballSummary>
+            <h1>Pokémon capturados</h1>
+            <div>
+              <span>
+                {capturedPokemon.reduce((total, pokemon) => {
+                  return total + pokemon.amount;
+                }, 0)}{' '}
+                pokémon
+              </span>
+              <span>{totalFormatted}</span>
+            </div>
+            <div>
+              <span>Frete</span>
+              <span>{shippingValueFormatted}</span>
+            </div>
+            <hr />
+            <Total>
+              <span>TOTAL</span>
+              <strong>{totalWithShippingFormatted}</strong>
+            </Total>
+            <hr />
+            <button type="button">FINALIZAR CAPTURA</button>
+          </PokeballSummary>
+        </PokeballWrapper>
       </Content>
     </Container>
   );

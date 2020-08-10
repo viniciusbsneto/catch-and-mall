@@ -6,7 +6,7 @@ import pokeballIcon from '@iconify/icons-gg/pokemon';
 import axios from 'axios';
 import { ThemeContext } from 'styled-components';
 import { formatPrice } from '../../util/format';
-import { usePokeball } from '../../hooks/PokeballContext';
+import { usePokeball } from '../../hooks/pokeball';
 
 import { Container, Content, NavigationHeader, PokemonList } from './styles';
 
@@ -30,8 +30,8 @@ interface Pokemon {
 const Home: React.FC = () => {
   const [pokemonState, setPokemonState] = useState<Pokemon[]>([]);
   const [loading, setLoading] = useState(true);
-  const { title } = useContext(ThemeContext);
   const { handleCapturePokemon } = usePokeball();
+  const { title } = useContext(ThemeContext);
 
   useEffect(() => {
     setLoading(true);
@@ -41,7 +41,6 @@ const Home: React.FC = () => {
           `https://pokeapi.co/api/v2/type/${title}`
         );
         const { pokemon } = apiResponse.data;
-        console.log(pokemon);
 
         const pokemonList: Pokemon[] = await Promise.all(
           pokemon.map(
@@ -72,8 +71,9 @@ const Home: React.FC = () => {
         setPokemonState(pokemonList);
         setLoading(false);
       } catch (err) {
-        // Tratar a exceção
-        console.log(err);
+        throw new Error(
+          `could not load Pokémon from https://pokeapi.co/api/v2/type/${title}`
+        );
       }
     }
     loadPokemon();

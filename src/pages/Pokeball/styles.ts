@@ -121,13 +121,3 @@ export const Total = styled.div`
     font-size: 24px;
   }
 `;
-
-export const PokeballEmpty = styled.div`
-  flex: 1;
-  background: #fff;
-  padding: 30px;
-  border-radius: 4px;
-  margin-right: 120px;
-  margin-top: 32px;
-  color: #999;
-`;
