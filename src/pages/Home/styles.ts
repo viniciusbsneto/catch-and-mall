@@ -1,32 +1,16 @@
 import styled from 'styled-components';
 import { lighten } from 'polished';
 
-export const Container = styled.div``;
-
 export const NavigationHeader = styled.div`
+  width: 90%;
   max-width: 1120px;
   margin: 64px auto 0;
   display: flex;
   align-items: center;
 `;
 
-export const Pagination = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: auto;
-
-  button {
-    color: ${props => props.theme.colors.button};
-    border: 0;
-  }
-
-  span {
-    color: #333;
-  }
-`;
-
 export const Content = styled.main`
+  width: 90%;
   max-width: 1120px;
   margin: 32px auto 64px;
   display: flex;
@@ -36,7 +20,7 @@ export const Content = styled.main`
 
 export const PokemonList = styled.ul`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   grid-gap: 20px;
   list-style: none;
   flex: 1;

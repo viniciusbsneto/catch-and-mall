@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 import { lighten } from 'polished';
 
-export const Container = styled.div``;
-
 export const Content = styled.main`
+  width: 90%;
   max-width: 1120px;
   margin: 64px auto;
 `;
