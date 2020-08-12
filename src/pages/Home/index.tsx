@@ -8,7 +8,7 @@ import { ThemeContext } from 'styled-components';
 import { formatPrice } from '../../util/format';
 import { usePokeball } from '../../hooks/pokeball';
 
-import { Container, Content, NavigationHeader, PokemonList } from './styles';
+import { Content, NavigationHeader, PokemonList } from './styles';
 
 interface PokeAPIResponse {
   pokemon: {
@@ -80,7 +80,7 @@ const Home: React.FC = () => {
   }, [title]);
 
   return (
-    <Container>
+    <>
       <NavigationHeader>
         <h1>Pokémon</h1>
       </NavigationHeader>
@@ -106,7 +106,7 @@ const Home: React.FC = () => {
           </PokemonList>
         )}
       </Content>
-    </Container>
+    </>
   );
 };
 

@@ -8,7 +8,6 @@ import {
 import { usePokeball } from '../../hooks/pokeball';
 
 import {
-  Container,
   Content,
   PokeballWrapper,
   PokemonTable,
@@ -46,7 +45,7 @@ const Pokeball: React.FC = () => {
   };
 
   return (
-    <Container>
+    <>
       <Content>
         <h1>Minha Pokebola</h1>
 
@@ -132,7 +131,7 @@ const Pokeball: React.FC = () => {
           </PokeballSummary>
         </PokeballWrapper>
       </Content>
-    </Container>
+    </>
   );
 };
 
