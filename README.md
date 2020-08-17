@@ -74,8 +74,9 @@ Try out at https://catch-n-mall.netlify.app/
 ---
 
 ## :hammer_and_wrench: Pending (in progress...) :hourglass_flowing_sand:
-1. [ ] **Responsive Design**
-  - Application is not entirely responsive yet. Still working on that.
+1. [x] **Responsive Design**
+  - ~~Application is not entirely responsive yet. Still working on that.~~
+  - UI is now fully responsive
 2. [ ] **Tests**
   - I'm currently writing tests with Jest. I should be pushing some tests very soon.
 3. [ ] **Search input**
